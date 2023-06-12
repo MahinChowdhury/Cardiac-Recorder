@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/loginbg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Register"
+        android:textColor="#54626F"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"
+        />
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:hint="Email"
+        android:paddingLeft="20dp"
+        android:textColor="#54626F"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:hint="Password"
+        android:paddingLeft="20dp"
+        android:textColor="#54626F"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/register_confirm_password"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:hint="Confirm Password"
+        android:paddingLeft="20dp"
+        android:textColor="#54626F"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/register_btn2"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#54626F"
+        android:text="Register"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an accout? Sign In"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        />
+
+</LinearLayout>

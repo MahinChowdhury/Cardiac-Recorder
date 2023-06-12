@@ -1,1 +1,1 @@
-# Cardiac-Recorder
+# CardiacRecorder
