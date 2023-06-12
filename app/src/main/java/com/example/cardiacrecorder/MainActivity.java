@@ -55,15 +55,4 @@ public class MainActivity extends AppCompatActivity {
         Intent register_page = new Intent(MainActivity.this,registerActivity.class);
         startActivity(register_page);
     }
-    
-    public void mergeTest() {
-        System.out.println("This is a merge from mahin");
-    }
-    public void territory(){
-        System.out.println("this is mahbub territory, not it's mahin's");
-    }
-
-    public void TestLogin(){
-        System.out.println("THis is login for mahbub");
-    }
 }
