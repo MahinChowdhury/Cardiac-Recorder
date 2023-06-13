@@ -29,7 +29,7 @@ public class registerActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent dashpage= new Intent(registerActivity.this, dashboardActivity.class);
+            Intent dashpage= new Intent(registerActivity.this, userRecords.class);
             startActivity(dashpage);
             finish();
         }
@@ -78,7 +78,7 @@ public class registerActivity extends AppCompatActivity {
                                     Toast.makeText(registerActivity.this, "Account created successfully.",
                                             Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent homepage = new Intent(registerActivity.this, dashboardActivity.class);
+                                    Intent homepage = new Intent(registerActivity.this, userRecords.class);
                                     startActivity(homepage);
                                     finish();
                                 } else {

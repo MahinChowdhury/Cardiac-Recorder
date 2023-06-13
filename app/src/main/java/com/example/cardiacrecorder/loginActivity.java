@@ -26,7 +26,7 @@ public class loginActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent dashpage = new Intent(loginActivity.this, dashboardActivity.class);
+            Intent dashpage = new Intent(loginActivity.this, userRecords.class);
             startActivity(dashpage);
             finish();
         }
@@ -66,7 +66,7 @@ public class loginActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent dashpage = new Intent(loginActivity.this, dashboardActivity.class);
+                                    Intent dashpage = new Intent(loginActivity.this, userRecords.class);
                                     startActivity(dashpage);
                                     finish();
                                 } else {
