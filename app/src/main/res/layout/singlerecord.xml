@@ -5,18 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:background="@color/white"
         android:id="@+id/CardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="10dp">
+        android:layout_margin="15dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/black"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E8D0C8">
-
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:orientation="vertical">
@@ -43,7 +42,7 @@
                             android:padding="5dp"
                             android:text="Systolic"
                             android:textColor="#406F92"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -56,7 +55,7 @@
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -64,7 +63,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:orientation="vertical">
@@ -76,7 +75,7 @@
                             android:layout_margin="5dp"
                             android:text="Diastolic"
                             android:textColor="#6E4092"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -89,7 +88,7 @@
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -104,7 +103,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
 
@@ -117,7 +116,7 @@
                             android:padding="5dp"
                             android:text="Date"
                             android:textColor="#429FE4"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -130,7 +129,7 @@
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -138,7 +137,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:orientation="vertical">
@@ -150,7 +149,7 @@
                             android:padding="5dp"
                             android:text="Time"
                             android:textColor="#C2784E"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -163,7 +162,7 @@
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -178,7 +177,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
 
@@ -190,8 +189,8 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Heart Rate"
-                            android:textColor="#429FE4"
-                            android:textSize="24sp"
+                            android:textColor="#DE3163"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -200,11 +199,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:background="#429FE4"
+                            android:background="#DE3163"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -212,7 +211,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:orientation="vertical">
@@ -223,8 +222,8 @@
                             android:layout_gravity="center"
                             android:padding="5dp"
                             android:text="Comment"
-                            android:textColor="#C2784E"
-                            android:textSize="24sp"
+                            android:textColor="#50C878"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -233,11 +232,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="10dp"
-                            android:background="#C2784E"
+                            android:background="#50C878"
                             android:gravity="center"
                             android:padding="5dp"
                             android:text="Hello"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -245,35 +244,31 @@
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:padding="3dp">
 
                     <Button
                         android:id="@+id/Edit_buttonId"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/edit_24" />
 <!--                        android:drawableRight="@drawable/ic_baseline_edit_24"-->
 
                         />
 
                     <Button
                         android:id="@+id/DeleteBUttonId"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_marginLeft="250dp"/>
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="220dp"
+                        android:drawableLeft="@drawable/delete_24" />
 <!--                        android:drawableRight="@drawable/ic_baseline_delete_24"-->
-
                         />
-
-
                 </LinearLayout>
             </LinearLayout>
-
         </RelativeLayout>
-
-
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
