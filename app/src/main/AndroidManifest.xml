@@ -13,13 +13,6 @@
         android:theme="@style/Theme.CardiacRecorder"
         tools:targetApi="31">
         <activity
-            android:name=".testActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".userRecords"
             android:exported="false">
             <meta-data
