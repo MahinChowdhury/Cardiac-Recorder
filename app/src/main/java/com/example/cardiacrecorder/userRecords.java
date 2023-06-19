@@ -29,6 +29,7 @@ public class userRecords extends AppCompatActivity {
 
     FirebaseUser user;
     FirebaseAuth auth;
+
     RecyclerView recyclerView;
     ArrayList<Record> list;
     DatabaseReference reference;
@@ -54,14 +55,14 @@ public class userRecords extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("records");
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyAdapter(this,list);
+        adapter = new MyAdapter(this, list);
 
         recyclerView.setAdapter(adapter);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Record record = dataSnapshot.getValue(Record.class);
                     list.add(record);
                 }
@@ -78,22 +79,22 @@ public class userRecords extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_naviagtion);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame, homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
-                    case R.id.home :
-                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,homeFragment).commit();
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame, homeFragment).commit();
                         return true;
                     case R.id.addnew:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,addFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame, addFragment).commit();
                         AddNewItem();
                         return true;
                     case R.id.logout:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,logoutFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame, logoutFragment).commit();
                         logoutUser();
                         return true;
                 }
@@ -103,21 +104,21 @@ public class userRecords extends AppCompatActivity {
         });
     }
 
-    public void insertData(String date,String time,String s,String d, String cmnt,String hr){
-        Record record = new Record(date,time,s,d,hr,cmnt);
-        String id = mDB.push().getKey();
-        mDB.child("records").child(id).setValue(record);
-    }
+//    public void insertData(String date,String time,String s,String d, String cmnt,String hr){
+//        Record record = new Record(date,time,s,d,hr,cmnt);
+//        String id = mDB.push().getKey();
+//        mDB.child("records").child(id).setValue(record);
+//    }
 
-    public void AddNewItem(){
-        Intent newItem = new Intent(userRecords.this,MainActivity.class);
+    public void AddNewItem() {
+        Intent newItem = new Intent(userRecords.this, MainActivity.class);
         startActivity(newItem);
     }
-    public void logoutUser(){
+    public void logoutUser() {
 
         auth = FirebaseAuth.getInstance();
         auth.signOut();
-        Intent home = new Intent(userRecords.this,MainActivity.class);
+        Intent home = new Intent(userRecords.this, MainActivity.class);
         startActivity(home);
         finish();
     }
