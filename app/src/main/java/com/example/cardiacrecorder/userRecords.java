@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -111,13 +112,16 @@ public class userRecords extends AppCompatActivity {
 //    }
 
     public void AddNewItem() {
-        Intent newItem = new Intent(userRecords.this, MainActivity.class);
+        Intent newItem = new Intent(userRecords.this, addUserRecords.class);
         startActivity(newItem);
     }
     public void logoutUser() {
 
         auth = FirebaseAuth.getInstance();
         auth.signOut();
+
+        Toast.makeText(userRecords.this, "You have logged out successfully.", Toast.LENGTH_SHORT).show();
+
         Intent home = new Intent(userRecords.this, MainActivity.class);
         startActivity(home);
         finish();

@@ -40,7 +40,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="5dp"
-                            android:text="Systolic"
+                            android:text="Systolic(mm Hg)"
                             android:textColor="#406F92"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -73,7 +73,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="5dp"
-                            android:text="Diastolic"
+                            android:text="Diastolic(mm Hg)"
                             android:textColor="#6E4092"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -114,7 +114,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="5dp"
-                            android:text="Date"
+                            android:text="Date(dd-mm-yy)"
                             android:textColor="#429FE4"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -147,7 +147,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="5dp"
-                            android:text="Time"
+                            android:text="Time(hh-mm)"
                             android:textColor="#C2784E"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -188,7 +188,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="5dp"
-                            android:text="Heart Rate"
+                            android:text="Heart Rate(b/p)"
                             android:textColor="#DE3163"
                             android:textSize="20sp"
                             android:textStyle="bold" />
