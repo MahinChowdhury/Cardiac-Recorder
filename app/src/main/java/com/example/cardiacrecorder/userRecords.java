@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,10 +27,17 @@ import java.util.ArrayList;
 public class userRecords extends AppCompatActivity {
     public DatabaseReference mDB;
 
+    FirebaseUser user;
+    FirebaseAuth auth;
     RecyclerView recyclerView;
     ArrayList<Record> list;
     DatabaseReference reference;
     MyAdapter adapter;
+
+    BottomNavigationView bottomNavigationView;
+    HomeFragment homeFragment = new HomeFragment();
+    AddFragment addFragment = new AddFragment();
+    LogoutFragment logoutFragment = new LogoutFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +49,7 @@ public class userRecords extends AppCompatActivity {
         //mDB = FirebaseDatabase.getInstance().getReference();
         //insertData("23-02-23","09:02PM","15mmHg","16mmHg","Good","68p/m");
 
-        //RecycleView Show
+//        RecycleView Show
         recyclerView = findViewById(R.id.userRecords);
         reference = FirebaseDatabase.getInstance().getReference("records");
         list = new ArrayList<>();
@@ -63,11 +74,51 @@ public class userRecords extends AppCompatActivity {
             }
         });
 
+        //BottomNavigation Section
+
+        bottomNavigationView = findViewById(R.id.bottom_naviagtion);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,homeFragment).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.home :
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,homeFragment).commit();
+                        return true;
+                    case R.id.addnew:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,addFragment).commit();
+                        AddNewItem();
+                        return true;
+                    case R.id.logout:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerFrame,logoutFragment).commit();
+                        logoutUser();
+                        return true;
+                }
+
+                return false;
+            }
+        });
     }
 
     public void insertData(String date,String time,String s,String d, String cmnt,String hr){
         Record record = new Record(date,time,s,d,hr,cmnt);
         String id = mDB.push().getKey();
         mDB.child("records").child(id).setValue(record);
+    }
+
+    public void AddNewItem(){
+        Intent newItem = new Intent(userRecords.this,MainActivity.class);
+        startActivity(newItem);
+    }
+    public void logoutUser(){
+
+        auth = FirebaseAuth.getInstance();
+        auth.signOut();
+        Intent home = new Intent(userRecords.this,MainActivity.class);
+        startActivity(home);
+        finish();
     }
 }
