@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,13 +50,13 @@ public class loginActivity extends AppCompatActivity {
                 String email = email_txt.getText().toString();
                 String password = password_txt.getText().toString();
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(loginActivity.this,"Enter Email",Toast.LENGTH_SHORT).show();
+                if(email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    email_txt.setError("Enter Valid Email");
                     return;
                 }
 
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(loginActivity.this,"Enter Password",Toast.LENGTH_SHORT).show();
+                    password_txt.setError("Enter a valid password");
                     return;
                 }
 

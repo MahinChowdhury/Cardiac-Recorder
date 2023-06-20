@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addUserRecords"
+    android:id="@+id/edit_records"
+    android:background="@drawable/editimg01"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="EDIT RECORD"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.Date of Measurement:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+
+
+    <EditText
+        android:id="@+id/editTextDate2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="dd-mm-yy"
+        android:textColorHint="@color/white"
+        android:inputType="date"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.Time of Measurement:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+    <EditText
+        android:id="@+id/editTextTime2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="hh-mm"
+        android:textColorHint="@color/white"
+        android:inputType="datetime"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3.Systolic Pressure:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+    <EditText
+        android:id="@+id/editTextSystolic2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mm Hg"
+        android:textColorHint="@color/white"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4.Diastolic Pressure:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+    <EditText
+        android:id="@+id/editTextDiastolic2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mm Hg"
+        android:textColorHint="@color/white"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5.Heart Rate:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+
+    <EditText
+        android:id="@+id/editTextHeart2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="b/m"
+        android:textColorHint="@color/white"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6.Comment:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="20sp"
+        />
+
+    <EditText
+        android:id="@+id/editTextComment2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10sp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="30sp"
+        />
+
+    <Button
+        android:id="@+id/update_btn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#001155"
+        android:text="UPDATE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        />
+
+
+</LinearLayout>
