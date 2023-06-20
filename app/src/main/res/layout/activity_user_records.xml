@@ -10,14 +10,6 @@
         android:id="@+id/userRecords"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
-        android:background="@drawable/dashboardbackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-=======
         android:layout_marginBottom="40dp"
         android:background="@drawable/dashboardbackground" />
 
@@ -35,6 +27,5 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
         />
->>>>>>> mahin
 
 </RelativeLayout>

@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
-//        if(user!=null){
-//            Intent dashpage = new Intent(MainActivity.this, userRecords.class);
-//            startActivity(dashpage);
-//            finish();
-//        }
+        if(user!=null){
+            Intent dashpage = new Intent(MainActivity.this, userRecords.class);
+            startActivity(dashpage);
+            finish();
+        }
 
         Button login_btn = findViewById(R.id.login_btn2);
         Button register_btn = findViewById(R.id.register_btn2);
