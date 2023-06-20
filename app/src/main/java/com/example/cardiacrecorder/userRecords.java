@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,9 @@ public class userRecords extends AppCompatActivity {
     AddFragment addFragment = new AddFragment();
     LogoutFragment logoutFragment = new LogoutFragment();
 
+    long maxCnt;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +52,8 @@ public class userRecords extends AppCompatActivity {
 
         //Insert Dummy Values to firebase for demo.
 
-        //mDB = FirebaseDatabase.getInstance().getReference();
-        //insertData("23-02-23","09:02PM","15mmHg","16mmHg","Good","68p/m");
+//        mDB = FirebaseDatabase.getInstance().getReference();
+//        insertData("23-02-23","09:02","15","16","Good","68");
 
 //        RecycleView Show
         recyclerView = findViewById(R.id.userRecords);
@@ -63,6 +67,8 @@ public class userRecords extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //maxCnt = snapshot.getChildrenCount();
+                //Log.d("Count of list : " , String.valueOf(maxCnt));
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Record record = dataSnapshot.getValue(Record.class);
                     list.add(record);

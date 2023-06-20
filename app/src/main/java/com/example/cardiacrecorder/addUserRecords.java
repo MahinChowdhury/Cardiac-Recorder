@@ -1,17 +1,22 @@
 package com.example.cardiacrecorder;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class addUserRecords extends AppCompatActivity {
 
@@ -19,6 +24,7 @@ public class addUserRecords extends AppCompatActivity {
 
     EditText date_txt,time_txt,systolic_txt,diastolic_txt,heartRate_txt,comment_txt;
     String date,time,systolic,diastolic,heartRate,comment;
+    long child_cnt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,20 @@ public class addUserRecords extends AppCompatActivity {
         comment_txt = findViewById(R.id.editTextComment);
 
         Button insert_btn = findViewById(R.id.insert_btn);
+
+        mDB.child("records").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                child_cnt = snapshot.getChildrenCount();
+                //Log.d("Count of list : " , String.valueOf(child_cnt));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
          insert_btn.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -92,8 +112,9 @@ public class addUserRecords extends AppCompatActivity {
     }
 
     public void insertData(String date,String time,String s,String d, String cmnt,String hr){
-    Record record = new Record(date,time,s,d,hr,cmnt);
-    String id = mDB.push().getKey();
-    mDB.child("records").child(id).setValue(record);
+
+        String id = String.valueOf(child_cnt + 1);
+        Record record = new Record(date,time,s,d,hr,cmnt,id);
+        mDB.child("records").child(id).setValue(record);
     }
 }
