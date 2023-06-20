@@ -10,21 +10,11 @@
         android:id="@+id/userRecords"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/dashboardbackground" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/containerFrame"
-        android:layout_above="@id/bottom_naviagtion"
-        />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottom_naviagtion"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav_menu"
-        />
+        android:background="@drawable/dashboardbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </RelativeLayout>
