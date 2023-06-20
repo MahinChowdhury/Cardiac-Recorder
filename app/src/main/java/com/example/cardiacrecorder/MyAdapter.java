@@ -103,6 +103,44 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
            }
        });
+        holder.dlt_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                keyID = record.getRecordID();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Confirmation");
+                builder.setMessage("Are you sure you want to delete this listing?");
+
+// Set positive button action
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Perform the deletion operation here
+                        deleteListing();
+                        dialog.dismiss();
+                        Intent dashpage = new Intent(context, userRecords.class);
+                        context.startActivity(dashpage);
+                        ((Activity) context).finish();
+                    }
+                });
+
+// Set negative button action
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing or handle cancel operation
+                    }
+                });
+
+// Create and show the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
+
 
     }
 
@@ -178,5 +216,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         else{
             date_txt.setError("The field must be required");
         }
+    }
+
+    private void deleteListing(){
+
+        DatabaseReference recordsRef = FirebaseDatabase.getInstance().getReference().child("records");
+        recordsRef.child(keyID).removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Data successfully deleted
+                        Log.d("FirebaseDelete", "Data deleted with ID: " + keyID);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle any error that occurred while deleting the data
+                        Log.e("FirebaseDelete", "Error deleting data: " + e.getMessage());
+                    }
+                });
     }
 }
