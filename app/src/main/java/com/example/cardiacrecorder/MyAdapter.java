@@ -2,6 +2,7 @@ package com.example.cardiacrecorder;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
@@ -102,6 +103,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
            }
        });
+
     }
 
     @Override

@@ -60,6 +60,9 @@ public class addUserRecords extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  inputFormat();
+                 Intent dashpage= new Intent(addUserRecords.this, userRecords.class);
+                 startActivity(dashpage);
+                 finish();
              }
          });
 
@@ -82,10 +85,6 @@ public class addUserRecords extends AppCompatActivity {
                             insertData(date,time,systolic,diastolic,comment,heartRate);
 
                             Toast.makeText(addUserRecords.this, "Inserted data successfully", Toast.LENGTH_SHORT).show();
-
-                            Intent dashpage= new Intent(addUserRecords.this, userRecords.class);
-                            startActivity(dashpage);
-                            finish();
 
                         } else {
                             heartRate_txt.setError("Invalid data format added");
