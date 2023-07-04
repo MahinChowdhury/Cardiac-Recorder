@@ -51,6 +51,25 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
+
+        // ... other dependencies ...
+
+        // Firebase dependencies
+    implementation 'com.google.firebase:firebase-database:20.2.2'
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.ext:truth:1.5.0'
+    androidTestImplementation 'com.google.truth:truth:1.1.3'
+    androidTestImplementation 'org.hamcrest:hamcrest-library:2.2'
+
+
     implementation "androidx.core:core-splashscreen:1.0.1"
     implementation "pl.droidsonroids.gif:android-gif-drawable:1.2.22"
     implementation 'androidx.appcompat:appcompat:1.6.1'
