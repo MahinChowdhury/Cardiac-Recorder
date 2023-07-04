@@ -37,6 +37,7 @@
 
     <EditText
         android:id="@+id/register_password"
+        android:inputType="textPassword"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
@@ -47,6 +48,7 @@
 
     <EditText
         android:id="@+id/register_confirm_password"
+        android:inputType="textPassword"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"

@@ -56,7 +56,7 @@ public class userRecords extends AppCompatActivity {
 //        insertData("23-02-23","09:02","15","16","Good","68");
 
 //        RecycleView Show
-        recyclerView = findViewById(R.id.userRecords);
+        recyclerView = findViewById(R.id.recycleViewId);
         reference = FirebaseDatabase.getInstance().getReference("records");
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
