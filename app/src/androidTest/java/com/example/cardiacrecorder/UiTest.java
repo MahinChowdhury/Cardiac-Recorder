@@ -40,20 +40,13 @@ import androidx.test.espresso.matcher.ViewMatchers;
 
 public class UiTest {
 
-    @Rule
-    public ActivityScenarioRule<addUserRecords> activityScenarioRule = new ActivityScenarioRule<>(addUserRecords.class);
+    @Test
+    public void testInsertData() {
 
-
-    @Before
-    public void setUp() {
-        // Disable animations and transitions
+        ActivityScenarioRule<addUserRecords> activityScenarioRule = new ActivityScenarioRule<>(addUserRecords.class);
         ActivityScenario.launch(addUserRecords.class).onActivity(activity ->
                 activity.getWindow().setWindowAnimations(0)
         );
-    }
-
-    @Test
-    public void testInsertData() {
 
         Espresso.onView(ViewMatchers.withId(R.id.editTextDate))
                 .perform(ViewActions.replaceText("02-07-23"), ViewActions.closeSoftKeyboard());
@@ -106,9 +99,9 @@ public class UiTest {
         });
     }
 
+
     @Rule
     public ActivityTestRule<userRecords> activityTestRule = new ActivityTestRule<>(userRecords.class);
-
     @Test
     public void testEditRecord() {
 
@@ -124,7 +117,7 @@ public class UiTest {
 
         // Perform actions to edit the record
         Espresso.onView(ViewMatchers.withId(R.id.recycleViewId))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickEditButtonAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new ClickEditButtonAction()));
 
         // Perform actions to modify the record
         Espresso.onView(ViewMatchers.withId(R.id.editTextDate2))
@@ -146,7 +139,7 @@ public class UiTest {
         }
 
         // Verify the changes in the record
-        DatabaseReference recordRef = FirebaseDatabase.getInstance().getReference().child("records").child("1");
+        DatabaseReference recordRef = FirebaseDatabase.getInstance().getReference().child("records").child("2");
         recordRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -201,7 +194,7 @@ public class UiTest {
 
         // Perform actions to delete the record
         Espresso.onView(ViewMatchers.withId(R.id.recycleViewId))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ClickDeleteButtonAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(3, new ClickDeleteButtonAction()));
 
         // Wait for the dialog to appear
         try {
@@ -223,7 +216,7 @@ public class UiTest {
         }
 
         // Check if the record is deleted in the database
-        DatabaseReference recordRef = FirebaseDatabase.getInstance().getReference().child("records").child("1");
+        DatabaseReference recordRef = FirebaseDatabase.getInstance().getReference().child("records").child("4");
         recordRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
