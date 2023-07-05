@@ -13,7 +13,7 @@ An android project for CSE 3120 - Software Engineering course
 
 ## Mockup Desing 
 
-<img src="https://i.ibb.co/hXJxMBF/mockup.png" alt="mockup" width="1000px">
+<img src="https://i.ibb.co/hXJxMBF/mockup.png" alt="mockup" width="800px">
 
 ## Application Visuals
 
