@@ -25,6 +25,7 @@ public class addUserRecords extends AppCompatActivity {
     EditText date_txt,time_txt,systolic_txt,diastolic_txt,heartRate_txt,comment_txt;
     String date,time,systolic,diastolic,heartRate,comment;
     long child_cnt = 0;
+    boolean isValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,52 +61,73 @@ public class addUserRecords extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  inputFormat();
-                 Intent dashpage= new Intent(addUserRecords.this, userRecords.class);
-                 startActivity(dashpage);
-                 finish();
+
+                 if(isValid){
+                     Intent dashpage= new Intent(addUserRecords.this, userRecords.class);
+                     startActivity(dashpage);
+                     finish();
+                 }
              }
          });
 
     }
 
     private void inputFormat() {
-        if(!TextUtils.isEmpty(time_txt.getText())) {
-            if (!TextUtils.isEmpty(date_txt.getText())) {
-                if ( (!TextUtils.isEmpty(systolic_txt.getText())) && (Integer.parseInt(systolic_txt.getText().toString()) >= 0) && (Integer.parseInt(systolic_txt.getText().toString()) <= 200) ) {
-                    if ( (!TextUtils.isEmpty(diastolic_txt.getText())) && (Integer.parseInt(diastolic_txt.getText().toString()) >= 0) && (Integer.parseInt(diastolic_txt.getText().toString()) <= 150)) {
-                        if ( (!TextUtils.isEmpty(heartRate_txt.getText())) && (Integer.parseInt(heartRate_txt.getText().toString()) >= 0) && (Integer.parseInt(heartRate_txt.getText().toString()) <= 150)) {
 
-                            date = date_txt.getText().toString();
-                            time = time_txt.getText().toString();
-                            systolic = systolic_txt.getText().toString();
-                            diastolic = diastolic_txt.getText().toString();
-                            heartRate = heartRate_txt.getText().toString();
-                            comment = comment_txt.getText().toString();
+        isValid = true;
 
-                            insertData(date,time,systolic,diastolic,comment,heartRate);
+        String timeInput = time_txt.getText().toString();
+        String dateInput = date_txt.getText().toString();
+        String systolicInput = systolic_txt.getText().toString();
+        String diastolicInput = diastolic_txt.getText().toString();
+        String heartRateInput = heartRate_txt.getText().toString();
 
-                            Toast.makeText(addUserRecords.this, "Inserted data successfully", Toast.LENGTH_SHORT).show();
-
-                        } else {
-                            heartRate_txt.setError("Invalid data format added");
-
-                            // Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-                        }
-
-                    } else {
-                        diastolic_txt.setError("Invalid data format added");
-                        //Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    systolic_txt.setError("Invalid data format added");
-                    //Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-                }
-            } else {
-                time_txt.setError("The field must be required");
-            }
+        if (TextUtils.isEmpty(timeInput)) {
+            time_txt.setError("The field must be required");
+            isValid = false;
         }
-        else{
+
+        if (TextUtils.isEmpty(dateInput)) {
             date_txt.setError("The field must be required");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(systolicInput) || !isValidRange(systolicInput, 90, 140)) {
+            systolic_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(diastolicInput) || !isValidRange(diastolicInput, 60, 90)) {
+            diastolic_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(heartRateInput) || !isValidRange(heartRateInput, 60, 100)) {
+            heartRate_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (isValid) {
+            date = dateInput;
+            time = timeInput;
+            systolic = systolicInput;
+            diastolic = diastolicInput;
+            heartRate = heartRateInput;
+            comment = comment_txt.getText().toString();
+
+            insertData(date, time, systolic, diastolic, comment, heartRate);
+
+            Toast.makeText(addUserRecords.this, "Inserted data successfully", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private boolean isValidRange(String value, int min, int max) {
+        try {
+            int intValue = Integer.parseInt(value);
+            return intValue >= min && intValue <= max;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 

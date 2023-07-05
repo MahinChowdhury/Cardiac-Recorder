@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
@@ -40,6 +41,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     TextView date_txt,time_txt,systolic_txt,diastolic_txt,heartRate_txt,comment_txt;
     String keyID;
+    String date,time,systolic,diastolic,heartRate,comment;
+    boolean isValid = false;
 
     @NonNull
     @Override
@@ -52,6 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         Record record = list.get(position);
         holder.date.setText(record.getDate());
         holder.time.setText(record.getTime());
@@ -59,6 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.systolic.setText(record.getSystolic());
         holder.heart.setText(record.getHeart());
         holder.comment.setText(record.getComment());
+        isValid = false;
 
         if (shouldChangeBackgroundColor(record)) {
             holder.cardView.setCardBackgroundColor(Color.parseColor("#8b0000"));
@@ -102,11 +107,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                update_btn.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
+                       isValid = false;
                         inputFormat();
-                        dialog.dismiss();
-                       Intent dashpage = new Intent(context, userRecords.class);
-                       context.startActivity(dashpage);
-                       ((Activity) context).finish();
+                        if(isValid){
+                            dialog.dismiss();
+                            Intent dashpage = new Intent(context, userRecords.class);
+                            context.startActivity(dashpage);
+                            ((Activity) context).finish();
+                        }
                    }
                });
 
@@ -186,52 +194,68 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     private void inputFormat() {
-        if(!TextUtils.isEmpty(time_txt.getText())) {
-            if (!TextUtils.isEmpty(date_txt.getText())) {
-                if ( (!TextUtils.isEmpty(systolic_txt.getText())) && (Integer.parseInt(systolic_txt.getText().toString()) >= 0) && (Integer.parseInt(systolic_txt.getText().toString()) <= 200) ) {
-                    if ( (!TextUtils.isEmpty(diastolic_txt.getText())) && (Integer.parseInt(diastolic_txt.getText().toString()) >= 0) && (Integer.parseInt(diastolic_txt.getText().toString()) <= 150)) {
-                        if ( (!TextUtils.isEmpty(heartRate_txt.getText())) && (Integer.parseInt(heartRate_txt.getText().toString()) >= 0) && (Integer.parseInt(heartRate_txt.getText().toString()) <= 150)) {
+        isValid = true;
 
+        String timeInput = time_txt.getText().toString();
+        String dateInput = date_txt.getText().toString();
+        String systolicInput = systolic_txt.getText().toString();
+        String diastolicInput = diastolic_txt.getText().toString();
+        String heartRateInput = heartRate_txt.getText().toString();
 
-                            Record myrecord = new Record(date_txt.getText().toString(),time_txt.getText().toString(),systolic_txt.getText().toString(),diastolic_txt.getText().toString(),heartRate_txt.getText().toString(),comment_txt.getText().toString(),keyID);
-
-                            DatabaseReference recordsRef = FirebaseDatabase.getInstance().getReference().child("records");
-                            recordsRef.child(keyID).setValue(myrecord)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            // Data successfully inserted with the generated ID
-                                            Log.d("FirebaseInsert", "Data inserted with ID: " + keyID);
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            // Handle any error that occurred while inserting the data
-                                            Log.e("FirebaseInsert", "Error inserting data: " + e.getMessage());
-                                        }
-                                    });
-
-                        } else {
-                            heartRate_txt.setError("Invalid data format added");
-                            // Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-
-                        }
-
-                    } else {
-                        diastolic_txt.setError("Invalid data format added");
-                        //Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    systolic_txt.setError("Invalid data format added");
-                    //Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-                }
-            } else {
-                time_txt.setError("The field must be required");
-            }
+        if (TextUtils.isEmpty(timeInput)) {
+            time_txt.setError("The field must be required");
+            isValid = false;
         }
-        else{
+
+        if (TextUtils.isEmpty(dateInput)) {
             date_txt.setError("The field must be required");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(systolicInput) || !isValidRange(systolicInput, 90, 140)) {
+            systolic_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(diastolicInput) || !isValidRange(diastolicInput, 60, 90)) {
+            diastolic_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (TextUtils.isEmpty(heartRateInput) || !isValidRange(heartRateInput, 60, 100)) {
+            heartRate_txt.setError("Invalid data format added");
+            isValid = false;
+        }
+
+        if (isValid) {
+
+            Record myrecord = new Record(date_txt.getText().toString(),time_txt.getText().toString(),systolic_txt.getText().toString(),diastolic_txt.getText().toString(),heartRate_txt.getText().toString(),comment_txt.getText().toString(),keyID);
+
+            DatabaseReference recordsRef = FirebaseDatabase.getInstance().getReference().child("records");
+            recordsRef.child(keyID).setValue(myrecord)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            // Data successfully inserted with the generated ID
+                            Log.d("FirebaseInsert", "Data inserted with ID: " + keyID);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Handle any error that occurred while inserting the data
+                            Log.e("FirebaseInsert", "Error inserting data: " + e.getMessage());
+                        }
+                    });
+        }
+    }
+
+    private boolean isValidRange(String value, int min, int max) {
+        try {
+            int intValue = Integer.parseInt(value);
+            return intValue >= min && intValue <= max;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
