@@ -13,7 +13,7 @@ An android project for CSE 3120 - Software Engineering course
 
 ## Overview
 
-
+![](https://github.com/MahinChowdhury/Cardiac-Recorder/blob/main/animation.gif)
 
 ## Application Visuals
 
