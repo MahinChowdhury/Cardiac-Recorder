@@ -11,10 +11,6 @@ An android project for CSE 3120 - Software Engineering course
 
 - In this application, We've used the Firebase Realtime Database to store and sync data in real-time. Firebase Authentication is used to manage user authentication and access control in the app. When adding a new entry, the system captures the time and date for the corresponding entry from the device's system clock.
 
-## Overview
-
-![](https://github.com/MahinChowdhury/Cardiac-Recorder/blob/main/animation.gif)
-
 ## Application Visuals
 
 <div align="center">
@@ -32,6 +28,9 @@ An android project for CSE 3120 - Software Engineering course
   </p>
 </div>
 
+## Overview
+
+![](https://github.com/MahinChowdhury/Cardiac-Recorder/blob/main/animation.gif)
 
 ## 🚀 About US
 
