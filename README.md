@@ -11,6 +11,10 @@ An android project for CSE 3120 - Software Engineering course
 
 - In this application, We've used the Firebase Realtime Database to store and sync data in real-time. Firebase Authentication is used to manage user authentication and access control in the app. When adding a new entry, the system captures the time and date for the corresponding entry from the device's system clock.
 
+## Mockup Desing 
+
+<img src="https://i.ibb.co/hXJxMBF/mockup.png" alt="mockup" width="1000px">
+
 ## Application Visuals
 
 <div align="center">
