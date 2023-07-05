@@ -55,4 +55,16 @@ public class MainActivity extends AppCompatActivity {
         Intent register_page = new Intent(MainActivity.this,registerActivity.class);
         startActivity(register_page);
     }
+
+    public void redirectRegister(View view) {
+        Intent register_page = new Intent(MainActivity.this,registerActivity.class);
+        startActivity(register_page);
+        finish();
+    }
+
+    public void redirectLogin(View view) {
+        Intent login_page = new Intent(MainActivity.this,loginActivity.class);
+        startActivity(login_page);
+        finish();
+    }
 }

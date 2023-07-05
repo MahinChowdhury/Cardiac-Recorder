@@ -47,4 +47,10 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="400sp"
+        android:layout_height="200sp"
+        android:layout_marginTop="30sp"
+        android:src="@drawable/heartgif1" />
+
 </LinearLayout>

@@ -46,16 +46,16 @@
         android:textColor="#54626F"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/forget_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="35dp"
-        android:text="Forget Password?"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/forget_link"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="end"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginRight="35dp"-->
+<!--        android:text="Forget Password?"-->
+<!--        android:textSize="18dp"-->
+<!--        android:textStyle="bold" />-->
 
     <Button
         android:id="@+id/login_btn2"
@@ -74,8 +74,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
+        android:onClick="redirectRegister"
         android:text="Don't have an account? Sign Up"
         android:textSize="18dp"
         android:textStyle="bold" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="200sp"
+        android:layout_height="100sp"
+        android:layout_marginTop="20sp"
+        android:src="@drawable/heartgif1" />
 
 </LinearLayout>
