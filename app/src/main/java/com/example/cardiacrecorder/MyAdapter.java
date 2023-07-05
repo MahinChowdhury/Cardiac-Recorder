@@ -72,6 +72,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
 
 
+        //Edit on recycleView
+
         holder.edit_btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -120,6 +122,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
            }
        });
+
+        //Delete on recycleView
+
         holder.dlt_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,6 +198,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return systolicValue < 90 || systolicValue > 140 || diastolicValue < 60 || diastolicValue > 90;
     }
 
+    //Check input Format
+
     private void inputFormat() {
         isValid = true;
 
@@ -258,6 +265,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             return false;
         }
     }
+
+    //Function for deleting listing
 
     private void deleteListing(){
 

@@ -40,6 +40,7 @@ import androidx.test.espresso.matcher.ViewMatchers;
 
 public class UiTest {
 
+    //UI Testing for Insert Data
     @Test
     public void testInsertData() {
 
@@ -99,6 +100,7 @@ public class UiTest {
         });
     }
 
+    //UI Testing for Editing Data
 
     @Rule
     public ActivityTestRule<userRecords> activityTestRule = new ActivityTestRule<>(userRecords.class);

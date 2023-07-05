@@ -57,6 +57,8 @@ public class addUserRecords extends AppCompatActivity {
         });
 
 
+        //inserting Records
+
          insert_btn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -71,6 +73,8 @@ public class addUserRecords extends AppCompatActivity {
          });
 
     }
+
+    //Check input formats
 
     private void inputFormat() {
 

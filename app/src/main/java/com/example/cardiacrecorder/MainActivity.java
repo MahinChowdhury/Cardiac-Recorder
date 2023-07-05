@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
+        //User Authentication
+
         if(user!=null){
             Intent dashpage = new Intent(MainActivity.this, userRecords.class);
             startActivity(dashpage);
@@ -47,21 +49,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Login Page
+
     public void loginUser(){
         Intent login_page = new Intent(MainActivity.this,loginActivity.class);
         startActivity(login_page);
     }
+
+    //Register Page
+
     public void registerUser(){
         Intent register_page = new Intent(MainActivity.this,registerActivity.class);
         startActivity(register_page);
     }
 
+    //Register Page
     public void redirectRegister(View view) {
         Intent register_page = new Intent(MainActivity.this,registerActivity.class);
         startActivity(register_page);
         finish();
     }
 
+    //Login Page
     public void redirectLogin(View view) {
         Intent login_page = new Intent(MainActivity.this,loginActivity.class);
         startActivity(login_page);
