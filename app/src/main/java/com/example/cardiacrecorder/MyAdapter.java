@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -58,7 +60,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.heart.setText(record.getHeart());
         holder.comment.setText(record.getComment());
 
-       holder.edit_btn.setOnClickListener(new View.OnClickListener() {
+        if (shouldChangeBackgroundColor(record)) {
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#8b0000"));
+        } else {
+            holder.cardView.setCardBackgroundColor(Color.BLACK);
+        }
+
+
+        holder.edit_btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
 
@@ -153,10 +162,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         TextView date,time,systolic,diastolic,heart,comment;
         Button edit_btn,dlt_btn;
+        CardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            cardView = itemView.findViewById(R.id.CardView);
             date = itemView.findViewById(R.id.tvDate);
             time = itemView.findViewById(R.id.tvTime);
             heart = itemView.findViewById(R.id.tvHeartRate);
@@ -166,6 +177,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             edit_btn = itemView.findViewById(R.id.Edit_buttonId);
             dlt_btn = itemView.findViewById(R.id.DeleteBUttonId);
         }
+    }
+
+    private boolean shouldChangeBackgroundColor(Record record) {
+        int systolicValue = Integer.parseInt(record.getSystolic());
+        int diastolicValue = Integer.parseInt(record.getDiastolic());
+        return systolicValue < 90 || systolicValue > 140 || diastolicValue < 60 || diastolicValue > 90;
     }
 
     private void inputFormat() {

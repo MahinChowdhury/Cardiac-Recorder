@@ -10,11 +10,13 @@
                 <map>
                   <entry key="7e4a7134" value="120" />
                   <entry key="Duration" value="90" />
+                  <entry key="HQLVDYWGBQAUWWLB" value="120" />
                   <entry key="Pixel_3a_API_33_x86_64" value="120" />
                   <entry key="Pixel_XL_API_30" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="Xiaomi" value="120" />
                   <entry key="Xiaomi&#10; M2101K6P" value="120" />
+                  <entry key="vivo&#10; vivo 1908_19" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -26,8 +28,10 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="HQLVDYWGBQAUWWLB" value="120" />
                   <entry key="Pixel_XL_API_30" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="vivo&#10; vivo 1908_19" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -40,9 +44,11 @@
                 <map>
                   <entry key="7e4a7134" value="120" />
                   <entry key="Duration" value="90" />
+                  <entry key="HQLVDYWGBQAUWWLB" value="120" />
                   <entry key="Pixel_XL_API_30" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="Xiaomi&#10; M2101K6P" value="120" />
+                  <entry key="vivo&#10; vivo 1908_19" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -54,8 +60,11 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="HQLVDYWGBQAUWWLB" value="120" />
                   <entry key="Pixel_XL_API_30" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="Xiaomi&#10; M2101K6P" value="120" />
+                  <entry key="vivo&#10; vivo 1908_19" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>

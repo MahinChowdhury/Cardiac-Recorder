@@ -90,7 +90,6 @@ public class addUserRecords extends AppCompatActivity {
                             heartRate_txt.setError("Invalid data format added");
 
                             // Toast.makeText(DataEntry.this, "Invalid data format added", Toast.LENGTH_LONG).show();
-
                         }
 
                     } else {
