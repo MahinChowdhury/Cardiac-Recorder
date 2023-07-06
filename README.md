@@ -36,7 +36,7 @@ An android project for CSE 3120 - Software Engineering course
 
 ![](https://github.com/MahinChowdhury/Cardiac-Recorder/blob/main/animation.gif)
 
-## Project Videos 
+## App Demonstration Videos 
 https://drive.google.com/drive/folders/1sc6LPDrmuMfMs9SZyh2patCzHMQNkXRS?usp=sharing
 
 ## 🚀 About US
